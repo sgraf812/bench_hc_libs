@@ -8,3 +8,6 @@ c_*/
 .RData
 .vscode
 build/
+logs/
+cabal.project.local
+*.swp

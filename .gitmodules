@@ -1,0 +1,6 @@
+[submodule "head.hackage"]
+	path = head.hackage
+	url = https://gitlab.haskell.org/ghc/head.hackage
+[submodule "libs/containers/containers"]
+	path = libs/containers/containers
+	url = https://github.com/haskell/containers

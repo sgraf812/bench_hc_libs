@@ -12,6 +12,16 @@ PREFIX ?= $(shell printf %q '$(shell $(GHC) --numeric-version)')
 else
 PREFIX ?= $(shell printf %q '$(shell $(GHC) --numeric-version)_$(GHC_FLAGS)')
 endif
-BUILDDIR ?= $(PREFIX)
+BUILDDIR ?= build/$(PREFIX)
+ifneq "$(GHC_FLAGS)" ""
+# We construct a wrapper that always passes GHC_FLAGS to GHC.
+# That's more reliable than going through cabal's --ghc-options, for which it
+# is unclear whether it applies to the local package or also to all its
+# dependencies.
+NEWGHC := $(BUILDDIR)/$(PREFIX)
+$(shell . $(TOP)/scripts/make-wrapper.sh; makeWrapper '$(GHC)' '$(NEWGHC)' --add-flags '$(GHC_FLAGS)')
+GHC := $(NEWGHC)
+undefine NEWGHC
+endif
 
-CABAL=cabal --with-compiler=$(GHC) --ghc-options=$(GHC_FLAGS) --builddir=$(BUILDDIR)
+CABAL=cabal --with-compiler=$(GHC) --builddir=$(BUILDDIR)

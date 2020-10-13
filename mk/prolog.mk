@@ -13,10 +13,10 @@ cabal.project.local :
 	$(HEADHACK) init-local
 
 update :: cabal.project.local
-	$(CABAL) v2-update
+	$(CABAL) v2-update head.hackage.ghc.haskell.org
 
 build :: | update
-	$(CABAL) v2-build --disable-tests all:benchmarks
+	$(CABAL) v2-build --disable-tests --enable-benchmarks all
 
 clean ::
 	rm -rf $(BUILDDIR)

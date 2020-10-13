@@ -8,11 +8,11 @@ repository head.hackage.ghc.haskell.org
        f76d08be13e9a61a377a85e2fb63f4c5435d40f8feb3e12eb05905edb8cdea89
 
 packages:
---    vector/
-    vector/benchmarks/
+    vector/
+--    vector/benchmarks/
 --    primitive/
 --    vector-algorithms/
 
-allow-newer:async,transformers,binary,Glob,base,primitive,criterion,vector,containers,text
+allow-newer:async,transformers,binary,Glob,base,primitive,criterion,vector,containers,text,template-haskell
 
 

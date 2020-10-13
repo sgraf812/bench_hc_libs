@@ -4,3 +4,6 @@
 [submodule "libs/containers/containers"]
 	path = libs/containers/containers
 	url = https://github.com/haskell/containers
+[submodule "libs/vector/vector"]
+	path = libs/vector/vector
+	url = https://github.com/haskell/vector
